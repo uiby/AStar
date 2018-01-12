@@ -23,6 +23,9 @@ ExportedObj/
 *.svd
 *.pdb
 
+# package
+/Assets/UnityChan/
+
 # Unity3D generated meta files
 *.pidb.meta
 
