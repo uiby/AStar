@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(SimpleAnimation))]
 public class Charactor : MonoBehaviour {
   [SerializeField] float walkSpeed;
   [SerializeField] float runSpeed;

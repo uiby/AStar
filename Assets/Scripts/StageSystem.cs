@@ -3,31 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StageSystem : MonoBehaviour {
-	[SerializeField]
-	GameObject tilePrefab;
+	[SerializeField] GameObject tilePrefab;
+    [SerializeField] GameObject StarPrefab;
 
 	int[,] stageInfo = new int[,]{{1, 1, 1, 1, 1},
-																{1, 0, 1, 0, 1},
-																{1, 1, 1, 1, 1},
-  															{1, 0, 1, 0, 1},
-	  														{1, 1, 1, 1, 1}};
+								{1, 0, 1, 0, 1},
+								{1, 1, 1, 1, 1},
+  								{1, 0, 1, 0, 1},
+	  							{1, 1, 1, 1, 1}};
+    public static Vector3 center;
+    public static int width;
+    public static int height;
 
-  Vector3 center;
-
-	void Start() {
-    center = transform.position;
-		MakeStage();
+	void Awake() {
+        center = transform.position;
+        width = stageInfo.GetLength(1);
+        height = stageInfo.GetLength(0);
+        MakeStage();
 	}
 
-
 	void MakeStage() {
-		var yLength = stageInfo.GetLength(0);
-		var xLength = stageInfo.GetLength(1);
-
-		for (int y = 0; y < yLength; y++) {
-			for (int x = 0; x < xLength; x++) {
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
 				if (stageInfo[y, x] == 1)
-					InstantiateParts(tilePrefab, new Vector3(x - (xLength - 1)/2, 0, y - (yLength - 1)/2));
+					InstantiateParts(tilePrefab, new Vector3(x - (width - 1)/2, 0, y - (height - 1)/2));
 			}
 		}
 	}
