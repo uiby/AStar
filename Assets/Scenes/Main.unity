@@ -7358,7 +7358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1310282444584960, guid: 46795b28d8b84ff40ab153bb381f0b98, type: 2}
-  StarPrefab: {fileID: 1596087432099952, guid: 2668072aacb7fd848891484939a3ba34, type: 2}
+  starPrefab: {fileID: 1596087432099952, guid: 2668072aacb7fd848891484939a3ba34, type: 2}
 --- !u!4 &1710084954
 Transform:
   m_ObjectHideFlags: 0

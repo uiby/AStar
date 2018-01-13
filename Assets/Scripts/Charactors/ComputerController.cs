@@ -14,6 +14,7 @@ public class ComputerController : MonoBehaviour {
         aStar = (AStar)gameObject.AddComponent<AStar>();
         aStar.Initialize(massCount);
         aStar.MakeMassArrays(StageSystem.width, StageSystem.height);
+        aStar.MakePath();
 	}
 	void Update () {
 	}
