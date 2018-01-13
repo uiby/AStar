@@ -17,9 +17,13 @@ public class PlayerController : MonoBehaviour {
   }
 
   void FixedUpdate() {
-    if (movement > 0)
-        charactor.Run(movement);
-    else charactor.Walk(movement);
+    if (movement > 0f) {
+      charactor.Run(movement);
+    } else if (movement < 0f) {
+      charactor.Walk(movement);
+    } else {
+      charactor.Stop();
+    }
     charactor.Turn(turn);
   }
 }

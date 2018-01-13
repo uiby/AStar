@@ -8,16 +8,35 @@ public class Charactor : MonoBehaviour {
   [SerializeField] float runSpeed;
   [SerializeField] float turnSpeed;
   Rigidbody rigidbody;
+  SimpleAnimation animation;
   void Awake() {
-    rigidbody = transform.GetComponent<Rigidbody>();
+    rigidbody = GetComponent<Rigidbody>();
+    animation = GetComponent<SimpleAnimation>();
   }
 
   Vector3 prevVelocity = Vector3.zero;
+  int animationMode = -1;
   public void Walk(float movementValue) {
+    if (animationMode != 1) {
+      animationMode = 1;
+      animation.CrossFade("Walk", 0.05f);
+    }
     Move(transform.forward * movementValue * walkSpeed * Time.deltaTime);
   }
   public void Run(float movementValue) {
+    if (animationMode != 2) {
+      animationMode = 2;
+      animation.CrossFade("Run", 0.05f);
+      //animation.Rewind();
+    }
     Move(transform.forward * movementValue * runSpeed * Time.deltaTime);
+  }
+
+  public void Stop() {
+    if (animationMode != 0) {
+      animationMode = 0;
+      animation.Play("Default");
+    }
   }
 
   public void Turn (float turnValue) {
