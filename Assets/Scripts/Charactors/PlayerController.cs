@@ -4,20 +4,22 @@ using UnityEngine;
 
 [RequireComponent(typeof(Charactor))]
 public class PlayerController : MonoBehaviour {
-    Charactor charactor;
-	// Use this for initialization
-	void Start () {
-		charactor = transform.GetComponent<Charactor>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        var velocity = new Vector3(
-            Input.GetAxis("Horizontal"),
-            0,
-            Input.GetAxis("Vertical"));
-        if (velocity.magnitude > 0.01f) {
-            charactor.Walk(velocity);
-        }
-	}
+  Charactor charactor;
+  float movement = 0;
+  float turn = 0;
+  void Start () {
+    charactor = transform.GetComponent<Charactor>();
+  }
+
+  void Update () {
+    movement = Input.GetAxis("Vertical");
+    turn = Input.GetAxis("Horizontal");
+  }
+
+  void FixedUpdate() {
+    if (movement > 0)
+        charactor.Run(movement);
+    else charactor.Walk(movement);
+    charactor.Turn(turn);
+  }
 }
