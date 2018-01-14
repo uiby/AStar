@@ -16,6 +16,7 @@ public class Star : MonoBehaviour {
     void OnTriggerEnter(Collider coll) {
         if (coll.tag != "Charactor") return;
 
+        coll.GetComponent<Charactor>().GetStar();
         StartCoroutine(Arrived());
     }
 
@@ -34,7 +35,7 @@ public class Star : MonoBehaviour {
     }
 
     void DecideNextPos() {
-        Vector3[] players = GetPlayers().Select(col => col.transform.position).ToArray();
+        Vector3[] players = GameManager.GetPlayers().Select(col => col.transform.position).ToArray();
         var width = (float)StageSystem.width;
         var height = (float)StageSystem.height;
         var minDiff = 99999f;
@@ -70,12 +71,5 @@ public class Star : MonoBehaviour {
     void Show() {
         renderer.enabled = true;
         collider.enabled = true;
-    }
-
-
-
-    Collider[] GetPlayers() {
-        var layerMask = LayerMask.GetMask("Player");
-        return Physics.OverlapBox(StageSystem.center, new Vector3(StageSystem.width/2f, 2, StageSystem.height/2f), Quaternion.identity, layerMask);
     }
 }

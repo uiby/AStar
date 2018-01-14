@@ -5,14 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(SimpleAnimation))]
 public class Charactor : MonoBehaviour {
+  [SerializeField] StarCounter starCounter;
   [SerializeField] float walkSpeed;
   [SerializeField] float runSpeed;
   [SerializeField] float turnSpeed;
   Rigidbody rigidbody;
   SimpleAnimation animation;
+  int hasStarCount;
+  public bool canControl{get; private set;}
+
   void Awake() {
     rigidbody = GetComponent<Rigidbody>();
     animation = GetComponent<SimpleAnimation>();
+    hasStarCount = 0;
+    canControl = false;
   }
 
   Vector3 prevVelocity = Vector3.zero;
@@ -58,5 +64,14 @@ public class Charactor : MonoBehaviour {
 
   void Move(Vector3 value) {
     rigidbody.MovePosition(rigidbody.position + value);    
+  }
+
+  public void GetStar() {
+    hasStarCount++;
+    starCounter.UpdateText(hasStarCount);
+  }
+
+  public void BeginOperation() {
+    canControl = true;
   }
 }

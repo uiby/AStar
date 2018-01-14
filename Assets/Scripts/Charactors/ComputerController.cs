@@ -17,10 +17,9 @@ public class ComputerController : MonoBehaviour {
         aStar.MakeMassArrays(StageSystem.width, StageSystem.height);
         checkPointList = aStar.MakePath();
 	}
-	void Update () {
-	}
 
     void FixedUpdate() {
+        if (!charactor.canControl) return;
         if (checkCount < checkPointList.Count) {
             transform.LookAt(Vector3.up * transform.position.y + new Vector3(checkPointList[checkCount].x, 0, checkPointList[checkCount].y));
             charactor.Run(1);

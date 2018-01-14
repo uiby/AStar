@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update () {
+        if (!charactor.canControl) return;
         movement = Input.GetAxis("Vertical");
         turn = Input.GetAxis("Horizontal");
     }
 
     void FixedUpdate() {
+        if (!charactor.canControl) return;
         if (movement > 0f) {
             charactor.Run(movement);
         } else if (movement < 0f) {
