@@ -138,7 +138,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1582000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 154.99998, z: 0}
+  m_LocalPosition: {x: 0, y: 154.7191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 844490511}
@@ -1413,7 +1413,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 229308537}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -144.99998, z: 0}
+  m_LocalPosition: {x: 0, y: -144.7191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1895413068}
@@ -1643,7 +1643,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 262504324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 249.99997, y: -199.99998, z: 0}
+  m_LocalPosition: {x: 250, y: -199.7191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 844490511}
@@ -4360,13 +4360,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 826780848}
-  - component: {fileID: 826780847}
-  - component: {fileID: 826780843}
   - component: {fileID: 826780846}
   - component: {fileID: 826780849}
   - component: {fileID: 826780844}
-  - component: {fileID: 826780845}
   - component: {fileID: 826780850}
+  - component: {fileID: 826780843}
+  - component: {fileID: 826780845}
   m_Layer: 10
   m_Name: Utc_COM
   m_TagString: Charactor
@@ -4374,21 +4373,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &826780843
-MonoBehaviour:
+--- !u!95 &826780843
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 826780842}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e658bfc1e524494b9e54a1c92d8c1e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animations: []
-  delayWeight: 0
-  isKeepFace: 0
-  isGUI: 0
+  m_Avatar: {fileID: 9000000, guid: 533371e7422b091489bd9f7e927cdc49, type: 3}
+  m_Controller: {fileID: 9100000, guid: b7a21e1f4efe9284eae13389ee59f21a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &826780844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4409,24 +4410,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 826780842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3759e2aae0f7b9a47bb98fc64bf3c543, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e658bfc1e524494b9e54a1c92d8c1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingMode: 1
-  m_WrapMode: 0
-  m_Clip: {fileID: 7400000, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-  m_States:
-  - clip: {fileID: 7400000, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-    name: Default
-    defaultState: 1
-  - clip: {fileID: 7400004, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-    name: Run
-    defaultState: 0
-  - clip: {fileID: 7400002, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-    name: Walk
-    defaultState: 0
+  animations: []
+  delayWeight: 0
+  isKeepFace: 0
+  isGUI: 0
 --- !u!54 &826780846
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4442,24 +4432,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!95 &826780847
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: 533371e7422b091489bd9f7e927cdc49,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 826780842}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 533371e7422b091489bd9f7e927cdc49, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &826780848
 Transform:
   m_ObjectHideFlags: 0
@@ -4766,8 +4738,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 844490506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 480, y: 270, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: 311.5, y: 175, z: 0}
+  m_LocalScale: {x: 0.77875, y: 0.77875, z: 0.77875}
   m_Children:
   - {fileID: 1582001}
   - {fileID: 262504325}
@@ -6024,7 +5996,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1240311775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 209.99998, z: 0}
+  m_LocalPosition: {x: 20, y: 209.7191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1954750451}
@@ -7069,12 +7041,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1434908298}
   - component: {fileID: 1434908297}
-  - component: {fileID: 1434908303}
   - component: {fileID: 1434908301}
   - component: {fileID: 1434908300}
   - component: {fileID: 1434908299}
-  - component: {fileID: 1434908302}
   - component: {fileID: 1434908304}
+  - component: {fileID: 1434908302}
   m_Layer: 10
   m_Name: Misaki_Player
   m_TagString: Charactor
@@ -7092,7 +7063,7 @@ Animator:
   m_GameObject: {fileID: 1434908296}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3fa7e78f8230bbc4aa653b2c7921db90, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7a21e1f4efe9284eae13389ee59f21a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -7160,32 +7131,6 @@ Rigidbody:
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1434908302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1434908296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3759e2aae0f7b9a47bb98fc64bf3c543, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingMode: 1
-  m_WrapMode: 0
-  m_Clip: {fileID: 7400000, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-  m_States:
-  - clip: {fileID: 7400000, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-    name: Default
-    defaultState: 1
-  - clip: {fileID: 7400004, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-    name: Run
-    defaultState: 0
-  - clip: {fileID: 7400002, guid: dc7b6656cda8bfa4c84b8a51105de829, type: 3}
-    name: Walk
-    defaultState: 0
---- !u!114 &1434908303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -8488,7 +8433,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400096, guid: 3fa7e78f8230bbc4aa653b2c7921db90, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1790132295}
-  m_LocalRotation: {x: -0.007267017, y: 0.07349537, z: -0.1115793, w: 0.9910074}
+  m_LocalRotation: {x: -0.0072670174, y: 0.07349537, z: -0.11157931, w: 0.9910074}
   m_LocalPosition: {x: 0.017501583, y: 0.000000114440915, z: -0.00000050544736}
   m_LocalScale: {x: 1.0000001, y: 0.9999997, z: 0.99999994}
   m_Children:
@@ -8729,7 +8674,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1828323109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 209.99998, z: 0}
+  m_LocalPosition: {x: -20, y: 209.7191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 119427239}
@@ -9067,8 +9012,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1895413064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 480, y: 270, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: 311.5, y: 175, z: 0}
+  m_LocalScale: {x: 0.77875, y: 0.77875, z: 0.77875}
   m_Children:
   - {fileID: 1240311776}
   - {fileID: 1828323110}

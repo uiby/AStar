@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(SimpleAnimation))]
 public class Charactor : MonoBehaviour {
   [SerializeField] StarCounter starCounter;
   [SerializeField] float walkSpeed;
@@ -11,13 +10,13 @@ public class Charactor : MonoBehaviour {
   [SerializeField] float turnSpeed;
   [SerializeField] bool isCom;
   Rigidbody rigidbody;
-  SimpleAnimation animation;
+  Animator animator;
   int hasStarCount;
   public bool canControl{get; private set;}
 
   void Awake() {
     rigidbody = GetComponent<Rigidbody>();
-    animation = GetComponent<SimpleAnimation>();
+    animator = GetComponent<Animator>();
     hasStarCount = 0;
     canControl = false;
   }
@@ -27,14 +26,14 @@ public class Charactor : MonoBehaviour {
   public void Walk(float movementValue) {
     if (animationMode != 1) {
       animationMode = 1;
-      animation.CrossFade("Walk", 0.05f);
+      animator.SetBool("Run", true);
     }
     Move(transform.forward * movementValue * walkSpeed * Time.deltaTime);
   }
   public void Run(float movementValue) {
     if (animationMode != 2) {
       animationMode = 2;
-      animation.CrossFade("Run", 0.05f);
+      animator.SetBool("Run", true);
     }
     Move(transform.forward * movementValue * runSpeed * Time.deltaTime);
   }
@@ -42,7 +41,7 @@ public class Charactor : MonoBehaviour {
   public void Stop() {
     if (animationMode != 0) {
       animationMode = 0;
-      animation.Play("Default");
+      animator.SetBool("Run", false);
     }
   }
 
