@@ -28,7 +28,6 @@ public class Charactor : MonoBehaviour {
     if (animationMode != 2) {
       animationMode = 2;
       animation.CrossFade("Run", 0.05f);
-      //animation.Rewind();
     }
     Move(transform.forward * movementValue * runSpeed * Time.deltaTime);
   }

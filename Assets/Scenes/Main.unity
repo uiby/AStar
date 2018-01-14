@@ -3839,9 +3839,10 @@ GameObject:
   - component: {fileID: 826780849}
   - component: {fileID: 826780844}
   - component: {fileID: 826780845}
-  m_Layer: 0
+  - component: {fileID: 826780850}
+  m_Layer: 10
   m_Name: Utc_COM
-  m_TagString: Untagged
+  m_TagString: Charactor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3962,9 +3963,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b324fecd55faae741ad3e4c8db6bfeb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 0
-  runSpeed: 0
-  turnSpeed: 0
+  walkSpeed: 1
+  runSpeed: 2
+  turnSpeed: 180
+--- !u!65 &826780850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 826780842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &828041186
 GameObject:
   m_ObjectHideFlags: 0
@@ -6346,9 +6359,10 @@ GameObject:
   - component: {fileID: 1434908300}
   - component: {fileID: 1434908299}
   - component: {fileID: 1434908302}
-  m_Layer: 0
+  - component: {fileID: 1434908304}
+  m_Layer: 10
   m_Name: Misaki_Player
-  m_TagString: Untagged
+  m_TagString: Charactor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6469,6 +6483,18 @@ MonoBehaviour:
   delayWeight: 0
   isKeepFace: 0
   isGUI: 0
+--- !u!65 &1434908304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434908296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1440835020
 GameObject:
   m_ObjectHideFlags: 0

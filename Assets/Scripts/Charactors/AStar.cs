@@ -22,7 +22,7 @@ public class AStar : MonoBehaviour {
       xPos = xRange/2f;
       for (int x = 0; x < massCount; x++) {
         var center = new Vector3(xPos - width/2f, 0, yPos - height/2f);
-        if (HasTile(center, new Vector3(xRange/2f, 0.5f, yRange/2f))) {
+        if (StageSystem.HasTile(center, new Vector3(xRange/2f, 0.5f, yRange/2f))) {
           massArrays[y, x] = new Mass(center, xRange, yRange, new Vector2(x, y));
         } else {
           massArrays[y, x] = new Mass();
@@ -33,7 +33,7 @@ public class AStar : MonoBehaviour {
     }
   }
 
-  public void MakePath() {
+  public List<Vector2> MakePath() {
     Reset();
     var pos = transform.position;
     MarkStartTile(new Vector2(pos.x, pos.z));
@@ -44,6 +44,8 @@ public class AStar : MonoBehaviour {
     ShowDebug(1);
     ShowDebug(2);
     ShowPath();
+
+    return GetPath();
   }
 
   void Reset() {
@@ -71,17 +73,15 @@ public class AStar : MonoBehaviour {
 
     massArrays[(int)pos.y, (int)pos.x].SetMassType(MassType.START);
     startPos.Set(pos.x, pos.y);
-    Debug.Log("start pos:"+massArrays[(int)pos.y, (int)pos.x].pos);
   }
 
   void SearchGoal() {
     for (int y = 0; y < massCount; y++) {
       for (int x = 0; x < massCount; x++) {
         if (!massArrays[y, x].isMass) continue;
-        if (HasStar(massArrays[y, x].pos, new Vector3(massArrays[y, x].width*4/5f, 5, massArrays[y, x].height*4/5f))) {
+        if (StageSystem.HasStar(massArrays[y, x].pos, new Vector3(massArrays[y, x].width*4/5f, 5, massArrays[y, x].height*4/5f))) {
           massArrays[y, x].SetMassType(MassType.GOAL);
           goalPos.Set(x, y);
-          Debug.Log("goal pos: "+massArrays[y, x].pos);
           return; //finish
         }
       }
@@ -150,14 +150,23 @@ public class AStar : MonoBehaviour {
     massArrays[(int)goalPos.y, (int)goalPos.x].Search(massArrays[y, x].address);
   }
 
-  bool HasTile(Vector3 center, Vector3 scale) {
-    var layerMask = LayerMask.GetMask("Tile");
-    return Physics.CheckBox(center, scale/2f, Quaternion.identity, layerMask);
-  }
+  List<Vector2> GetPath() {
+    List<Vector2> checkPointList = new List<Vector2>();
+    var pos = goalPos;
+    var counter = 0;
+    var starPos = StageSystem.GetStar().transform.position;
+    checkPointList.Add(new Vector2(starPos.x, starPos.z));
+    //checkPointList.Add(massArrays[(int)pos.y, (int)pos.x].pos); //ゴール地点
+    while (massArrays[(int)pos.y, (int)pos.x].massType != MassType.START) {
+      checkPointList.Add(massArrays[(int)pos.y, (int)pos.x].ToVector2());
+      pos = massArrays[(int)pos.y, (int)pos.x].parnentPos;
+      if (counter++ > 10000)
+        break;
+    }
 
-  bool HasStar(Vector3 center, Vector3 scale) {
-    var layerMask = LayerMask.GetMask("Star");
-    return Physics.CheckBox(center, scale/2f, Quaternion.identity, layerMask);
+    checkPointList.Reverse();//スタート順にソート
+
+    return checkPointList;
   }
 
   void ShowDebug(int type) {

@@ -52,8 +52,23 @@ public class StageSystem : MonoBehaviour {
 		obj.transform.SetParent(this.transform);
 	}
 
-    bool HasTile(Vector3 center, Vector3 scale) {
+    public static bool HasTile(Vector3 center, Vector3 scale) {
         var layerMask = LayerMask.GetMask("Tile");
         return Physics.CheckBox(center, scale/2f, Quaternion.identity, layerMask);
     }
+
+    public static bool HasStar(Vector3 center, Vector3 scale) {
+        var layerMask = LayerMask.GetMask("Star");
+        return Physics.CheckBox(center, scale/2f, Quaternion.identity, layerMask);
+    }
+    public static bool HasStarInStage() {
+        var layerMask = LayerMask.GetMask("Star");
+        return Physics.CheckBox(center, new Vector3(width/2f, 2, height/2f) , Quaternion.identity, layerMask);
+    }
+
+    public static Collider GetStar() {
+        var layerMask = LayerMask.GetMask("Star");
+        return Physics.OverlapBox(center, new Vector3(width/2f, 2, height/2f), Quaternion.identity, layerMask)[0];
+    }
+
 }
