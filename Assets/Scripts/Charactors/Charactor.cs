@@ -9,6 +9,7 @@ public class Charactor : MonoBehaviour {
   [SerializeField] float walkSpeed;
   [SerializeField] float runSpeed;
   [SerializeField] float turnSpeed;
+  [SerializeField] bool isCom;
   Rigidbody rigidbody;
   SimpleAnimation animation;
   int hasStarCount;
@@ -69,9 +70,16 @@ public class Charactor : MonoBehaviour {
   public void GetStar() {
     hasStarCount++;
     starCounter.UpdateText(hasStarCount);
+    if (GameManager.IsWinner(hasStarCount)) {
+      GameObject.Find("GameManager").GetComponent<GameManager>().FinishGame(!isCom);
+    }
   }
 
   public void BeginOperation() {
     canControl = true;
+  }
+
+  public void EndOperation() {
+    canControl = false;
   }
 }

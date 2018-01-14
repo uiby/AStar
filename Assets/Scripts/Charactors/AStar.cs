@@ -39,11 +39,11 @@ public class AStar : MonoBehaviour {
     MarkStartTile(new Vector2(pos.x, pos.z));
     SearchGoal();
     DecideCostToGoal();
-    ShowDebug(0);
+    //ShowDebug(0);
     Search();
-    ShowDebug(1);
-    ShowDebug(2);
-    ShowPath();
+    //ShowDebug(1);
+    //ShowDebug(2);
+    //ShowPath();
 
     return GetPath();
   }

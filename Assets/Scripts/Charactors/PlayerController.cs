@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour {
         horizontal = Input.GetAxis("Horizontal");
         preDeg = deg;
         deg = Mathf.Atan2(vertical, -horizontal) * Mathf.Rad2Deg - 90;
-        Debug.Log(deg);
     }
 
     void FixedUpdate() {
