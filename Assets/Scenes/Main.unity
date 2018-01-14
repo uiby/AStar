@@ -4401,7 +4401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starCounter: {fileID: 1954750454}
   walkSpeed: 1
-  runSpeed: 2
+  runSpeed: 1.7
   turnSpeed: 180
 --- !u!65 &826780850
 BoxCollider:
@@ -7049,7 +7049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starCounter: {fileID: 119427242}
   walkSpeed: 1
-  runSpeed: 2
+  runSpeed: 2.2
   turnSpeed: 180
 --- !u!54 &1434908301
 Rigidbody:

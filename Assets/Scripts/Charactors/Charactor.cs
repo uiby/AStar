@@ -53,13 +53,13 @@ public class Charactor : MonoBehaviour {
     // この回転をリジッドボディの回転に適用
     rigidbody.MoveRotation (rigidbody.rotation * turnRotation);
   }
-  public void Turnaround() {
-    // 入力、スピード、フレーム間の時間に基づいて、回転する度数を決定
-    float turn = 180f;
+  public void Turnaround(float deg) {
+    transform.rotation = Quaternion.AngleAxis(deg, Vector3.up);
+    //float turn = idealAngle - transform.eulerAngles.y;
     // それを y 軸の回転に設定
-    Quaternion turnRotation = Quaternion.Euler (0f, turn, 0f);
+    //Quaternion turnRotation = Quaternion.Euler (0f, idealAngle, 0f);
     // この回転をリジッドボディの回転に適用
-    rigidbody.MoveRotation (rigidbody.rotation * turnRotation);
+    //rigidbody.MoveRotation (turnRotation);
   }
 
   void Move(Vector3 value) {
