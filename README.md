@@ -1,2 +1,4 @@
 # AStar
-The game used A*
+A*という探索アルゴリズムを用いたミニゲーム
+
+[詳細はこちら]http://nonoui.hatenablog.jp/entry/2018/01/15/233622

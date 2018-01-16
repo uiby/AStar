@@ -37,7 +37,8 @@ public class StageSystem : MonoBehaviour {
 	}
 
     void GenerateStar() {
-        InstantiateParts(starPrefab, Vector3.up * 0.3f);
+        InstantiateParts(starPrefab, new Vector3(0, 0.5f, 0));
+        //InstantiateParts(starPrefab, new Vector3(0, 0.5f, 0) + new Vector3(Random.Range(-2.5f, 2.5f), 0, Random.Range(-2.5f, 2.5f)));
     }
 
 	void InstantiateParts(GameObject prefab, Vector3 pos) {
